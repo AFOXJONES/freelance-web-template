@@ -1,0 +1,167 @@
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="overlay"></div>
+  <div class="hero__content">
+    <span class="hero__tagline-top">Bienvenidos a</span>
+    <h1 class="hero__title">{{ config.name }}</h1>
+    <p class="hero__tagline">{{ config.tagline }}</p>
+    <p class="hero__description">{{ config.description }}</p>
+    <div class="hero__buttons">
+      <app-cta-button link="/carta" variant="primary" size="lg">Ver Carta</app-cta-button>
+      <app-cta-button link="/contacto" variant="outline" size="lg">Contacto</app-cta-button>
+    </div>
+  </div>
+  <div class="hero__scroll-indicator">
+    <span>Descubre más</span>
+    <div class="hero__scroll-arrow">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES SECTION -->
+<section class="section features fade-in">
+  <div class="container">
+    <app-section-header
+      title="¿Por Qué Elegirnos?"
+      subtitle="Tres pilares que definen nuestra experiencia gastronómica">
+    </app-section-header>
+
+    <div class="grid grid--3">
+      @for (feature of config.features; track feature.title) {
+        <div class="feature-card fade-in">
+          <div class="feature-card__icon">
+            @switch (feature.icon) {
+              @case ('leaf') {
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 20A7 7 0 0 1 9.8 6.9C15.5 4.9 17 3.5 19 2c1 2 2 4.5 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+              }
+              @case ('chef-hat') {
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z"/><path d="M6 17h12"/></svg>
+              }
+              @case ('wine') {
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 22h8"/><path d="M12 11v11"/><path d="m19 3-7 8-7-8Z"/></svg>
+              }
+            }
+          </div>
+          <h3 class="feature-card__title">{{ feature.title }}</h3>
+          <p class="feature-card__description">{{ feature.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- MENU PREVIEW SECTION -->
+<section class="section section--alt menu-preview fade-in">
+  <div class="container">
+    <app-section-header
+      title="Nuestra Carta"
+      subtitle="Descubre una selección de nuestros platos más destacados">
+    </app-section-header>
+
+    <div class="grid grid--3">
+      @for (dish of featuredDishes; track dish.id) {
+        <div class="card menu-preview__card fade-in">
+          @if (dish.image) {
+            <img [src]="dish.image" [alt]="dish.name" class="card__image" loading="lazy">
+          }
+          <div class="card__content">
+            <div class="menu-preview__card-header">
+              <h3 class="menu-preview__card-title">{{ dish.name }}</h3>
+              <span class="menu-preview__card-price">{{ dish.price | number:'1.2-2' }}€</span>
+            </div>
+            <p class="menu-preview__card-description">{{ dish.description }}</p>
+            <div class="menu-preview__card-tags">
+              @for (tag of dish.tags; track tag) {
+                <span class="tag" [ngClass]="'tag--' + tag">{{ tag }}</span>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="menu-preview__cta">
+      <app-cta-button link="/carta" variant="outline-dark">Ver Carta Completa</app-cta-button>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT PREVIEW SECTION -->
+<section class="section about-preview fade-in">
+  <div class="container">
+    <div class="about-preview__grid">
+      <div class="about-preview__image">
+        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=800" alt="Nuestro chef en acción" loading="lazy">
+      </div>
+      <div class="about-preview__content">
+        <app-section-header
+          title="Nuestra Historia"
+          subtitle="Una tradición de sabor desde {{ config.foundedYear }}"
+          align="left">
+        </app-section-header>
+        <p class="about-preview__text">{{ config.about.historyText }}</p>
+        <ul class="about-preview__values">
+          @for (value of config.about.values.slice(0, 4); track value.title) {
+            <li class="about-preview__value">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>{{ value.title }}</span>
+            </li>
+          }
+        </ul>
+        <app-cta-button link="/nosotros" variant="outline-dark">Conocer Más</app-cta-button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY PREVIEW SECTION -->
+<section class="section section--alt gallery-preview fade-in">
+  <div class="container">
+    <app-section-header
+      title="Galería"
+      subtitle="Momentos capturados en La Esencia">
+    </app-section-header>
+
+    <div class="gallery-preview__grid">
+      @for (item of galleryPreview; track item.id) {
+        <div class="gallery-preview__item" [ngClass]="'gallery-preview__item--' + item.size">
+          <img [src]="item.src" [alt]="item.alt" loading="lazy">
+          <div class="gallery-preview__overlay">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="gallery-preview__cta">
+      <app-cta-button link="/galeria" variant="outline-dark">Ver Galería Completa</app-cta-button>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-section fade-in">
+  <div class="overlay"></div>
+  <div class="cta-section__content container">
+    <h2 class="cta-section__title">Ven a Vivir la Experiencia</h2>
+    <p class="cta-section__text">Reserva tu mesa y déjate sorprender por nuestra cocina de autor</p>
+    <div class="cta-section__hours">
+      <div class="cta-section__hours-item">
+        <span class="cta-section__hours-label">Lunes - Viernes</span>
+        <span>{{ config.hours.weekdays.lunch }} | {{ config.hours.weekdays.dinner }}</span>
+      </div>
+      <div class="cta-section__hours-item">
+        <span class="cta-section__hours-label">Sábado</span>
+        <span>{{ config.hours.saturday.lunch }} | {{ config.hours.saturday.dinner }}</span>
+      </div>
+      <div class="cta-section__hours-item">
+        <span class="cta-section__hours-label">Domingo</span>
+        <span>{{ config.hours.sunday.lunch }}</span>
+      </div>
+    </div>
+    <app-cta-button link="/contacto" variant="primary" size="lg">Reservar Mesa</app-cta-button>
+  </div>
+</section>

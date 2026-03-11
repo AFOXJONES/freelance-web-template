@@ -1,0 +1,113 @@
+<app-page-hero
+  title="Nosotros"
+  subtitle="Conoce la historia y las personas detrás de La Esencia"
+  image="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1920">
+</app-page-hero>
+
+<!-- HISTORY SECTION -->
+<section class="section history fade-in">
+  <div class="container">
+    <div class="history__grid">
+      <div class="history__image">
+        <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=800" alt="Interior histórico del restaurante" loading="lazy">
+      </div>
+      <div class="history__content">
+        <app-section-header
+          [title]="config.about.historyTitle"
+          align="left">
+        </app-section-header>
+        <p class="history__text">{{ config.about.historyText }}</p>
+        <blockquote class="history__quote">
+          {{ config.about.founderQuote }}
+          <cite>— {{ config.about.founderName }}</cite>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE SECTION -->
+<section class="section section--alt timeline-section fade-in">
+  <div class="container">
+    <app-section-header
+      title="Nuestro Recorrido"
+      subtitle="Los momentos que han definido nuestra historia">
+    </app-section-header>
+
+    <div class="timeline">
+      @for (event of config.about.timeline; track event.year) {
+        <div class="timeline__item fade-in" [class.timeline__item--right]="$odd">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <span class="timeline__year">{{ event.year }}</span>
+            <h3 class="timeline__title">{{ event.title }}</h3>
+            <p class="timeline__description">{{ event.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- VALUES SECTION -->
+<section class="section values-section fade-in">
+  <div class="container">
+    <app-section-header
+      title="Nuestros Valores"
+      subtitle="Los principios que guían cada decisión en nuestra cocina">
+    </app-section-header>
+
+    <div class="grid grid--4">
+      @for (value of config.about.values; track value.title) {
+        <div class="value-card fade-in">
+          <div class="value-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path [attr.d]="getValueIcon(value.icon)"/>
+            </svg>
+          </div>
+          <h3 class="value-card__title">{{ value.title }}</h3>
+          <p class="value-card__description">{{ value.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- TEAM SECTION -->
+<section class="section section--alt team-section fade-in">
+  <div class="container">
+    <app-section-header
+      title="Nuestro Equipo"
+      subtitle="Las personas que hacen posible la magia de La Esencia">
+    </app-section-header>
+
+    <div class="grid grid--4">
+      @for (member of team; track member.id) {
+        <div class="team-card fade-in">
+          <div class="team-card__image-wrapper">
+            <img [src]="member.image" [alt]="member.name" class="team-card__image" loading="lazy">
+            @if (member.social) {
+              <div class="team-card__social">
+                @if (member.social.instagram) {
+                  <a [href]="member.social.instagram" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                  </a>
+                }
+                @if (member.social.linkedin) {
+                  <a [href]="member.social.linkedin" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                  </a>
+                }
+              </div>
+            }
+          </div>
+          <div class="team-card__info">
+            <h3 class="team-card__name">{{ member.name }}</h3>
+            <span class="team-card__role">{{ member.role }}</span>
+            <p class="team-card__bio">{{ member.bio }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

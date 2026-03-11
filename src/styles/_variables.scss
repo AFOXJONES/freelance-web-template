@@ -1,0 +1,51 @@
+:root {
+  // === COLORES PRINCIPALES (MODIFICAR AQUÍ) ===
+  --color-primary: #6B3A2A;
+  --color-primary-light: #8B5A4A;
+  --color-primary-dark: #4A2518;
+
+  --color-accent: #D4852A;
+  --color-accent-light: #E09A45;
+  --color-accent-dark: #B06E1A;
+
+  // === FONDOS ===
+  --color-background: #FBF7F0;
+  --color-background-alt: #F5EFE6;
+  --color-card: #FFFFFF;
+
+  // === TEXTOS ===
+  --color-text-primary: #2D2A26;
+  --color-text-secondary: #5C5954;
+  --color-text-muted: #8A8680;
+  --color-text-inverse: #FBF7F0;
+
+  // === BORDES Y LÍNEAS ===
+  --color-border: #E5DDD2;
+  --color-border-dark: #D0C5B5;
+
+  // === TIPOGRAFÍA ===
+  --font-heading: 'Lora', Georgia, serif;
+  --font-body: 'Source Sans 3', system-ui, sans-serif;
+
+  // === ESPACIADO ===
+  --section-padding: 6rem;
+  --container-max-width: 1280px;
+
+  // === BORDES ===
+  --border-radius-sm: 0.375rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 1rem;
+}
+
+// Tema oscuro opcional
+.dark-theme {
+  --color-background: #1A1816;
+  --color-background-alt: #252220;
+  --color-card: #2D2A26;
+  --color-text-primary: #FBF7F0;
+  --color-text-secondary: #C4C0B8;
+  --color-text-muted: #8A8680;
+  --color-text-inverse: #2D2A26;
+  --color-border: #3D3A36;
+  --color-border-dark: #4D4A46;
+}

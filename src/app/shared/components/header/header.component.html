@@ -1,0 +1,43 @@
+<header class="header" [class.header--scrolled]="isScrolled">
+  <div class="header__container container">
+    <a routerLink="/" class="header__logo" (click)="closeMobileMenu()">
+      <span class="header__logo-text">{{ config.name }}</span>
+    </a>
+
+    <nav class="header__nav" [class.header__nav--open]="isMobileMenuOpen">
+      <ul class="header__nav-list">
+        @for (item of navigation; track item.path) {
+          <li class="header__nav-item">
+            <a
+              [routerLink]="item.path"
+              routerLinkActive="header__nav-link--active"
+              [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+              class="header__nav-link"
+              (click)="closeMobileMenu()">
+              {{ item.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <a routerLink="/contacto" class="header__cta btn btn--primary btn--sm">
+      Reservar
+    </a>
+
+    <button
+      class="header__hamburger"
+      [class.header__hamburger--active]="isMobileMenuOpen"
+      (click)="toggleMobileMenu()"
+      aria-label="Menú de navegación">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile overlay -->
+@if (isMobileMenuOpen) {
+  <div class="header__overlay" (click)="closeMobileMenu()"></div>
+}

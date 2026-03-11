@@ -1,0 +1,74 @@
+<app-page-hero
+  title="Galería"
+  subtitle="Momentos, platos y espacios que definen nuestra esencia"
+  image="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1920">
+</app-page-hero>
+
+<section class="section gallery-page">
+  <div class="container">
+    <!-- Filters -->
+    <div class="gallery-filters fade-in">
+      @for (filter of filters; track filter.id) {
+        <button
+          class="gallery-filters__btn"
+          [class.gallery-filters__btn--active]="activeFilter === filter.id"
+          (click)="filterBy(filter.id)">
+          {{ filter.label }}
+        </button>
+      }
+    </div>
+
+    <!-- Grid -->
+    <div class="gallery-grid">
+      @for (item of filteredItems; track item.id; let i = $index) {
+        <div
+          class="gallery-grid__item fade-in"
+          [ngClass]="'gallery-grid__item--' + (item.size || 'normal')"
+          (click)="openLightbox(i)">
+          <img [src]="item.src" [alt]="item.alt" loading="lazy">
+          <div class="gallery-grid__overlay">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              <line x1="11" y1="8" x2="11" y2="14"/>
+              <line x1="8" y1="11" x2="14" y2="11"/>
+            </svg>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+@if (lightboxOpen) {
+  <div class="lightbox" (click)="closeLightbox()">
+    <button class="lightbox__close" (click)="closeLightbox()" aria-label="Cerrar">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+
+    <button class="lightbox__nav lightbox__nav--prev" (click)="prevImage($event)" aria-label="Anterior">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+
+    <div class="lightbox__content" (click)="$event.stopPropagation()">
+      <img [src]="filteredItems[lightboxIndex].src" [alt]="filteredItems[lightboxIndex].alt">
+      <p class="lightbox__caption">{{ filteredItems[lightboxIndex].alt }}</p>
+    </div>
+
+    <button class="lightbox__nav lightbox__nav--next" (click)="nextImage($event)" aria-label="Siguiente">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </button>
+
+    <div class="lightbox__counter">
+      {{ lightboxIndex + 1 }} / {{ filteredItems.length }}
+    </div>
+  </div>
+}

@@ -1,0 +1,217 @@
+<app-page-hero
+  title="Contacto"
+  subtitle="Reserva tu mesa o ponte en contacto con nosotros"
+  image="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920">
+</app-page-hero>
+
+<section class="section contact-page">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Info Column -->
+      <div class="contact-info fade-in">
+        <app-section-header
+          title="Información"
+          align="left">
+        </app-section-header>
+
+        <div class="contact-info__items">
+          <!-- Address -->
+          <div class="contact-info__item">
+            <div class="contact-info__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Dirección</h4>
+              <p>{{ config.contact.address.street }}<br>
+                {{ config.contact.address.postalCode }} {{ config.contact.address.city }}<br>
+                {{ config.contact.address.country }}</p>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="contact-info__item">
+            <div class="contact-info__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Teléfono</h4>
+              <p><a href="tel:{{ config.contact.phone }}">{{ config.contact.phone }}</a></p>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="contact-info__item">
+            <div class="contact-info__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:{{ config.contact.email }}">{{ config.contact.email }}</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hours -->
+        <div class="contact-info__hours">
+          <h4>Horarios</h4>
+          <table class="contact-info__hours-table">
+            <tr>
+              <td>Lunes - Viernes</td>
+              <td>{{ config.hours.weekdays.lunch }}</td>
+              <td>{{ config.hours.weekdays.dinner }}</td>
+            </tr>
+            <tr>
+              <td>Sábado</td>
+              <td>{{ config.hours.saturday.lunch }}</td>
+              <td>{{ config.hours.saturday.dinner }}</td>
+            </tr>
+            <tr>
+              <td>Domingo</td>
+              <td>{{ config.hours.sunday.lunch }}</td>
+              <td>{{ config.hours.sunday.dinner }}</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Social -->
+        <div class="contact-info__social">
+          <h4>Síguenos</h4>
+          <div class="contact-info__social-links">
+            <a [href]="config.social.instagram" target="_blank" rel="noopener" class="contact-info__social-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              Instagram
+            </a>
+            <a [href]="config.social.facebook" target="_blank" rel="noopener" class="contact-info__social-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Facebook
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Column -->
+      <div class="contact-form-wrapper fade-in">
+        <app-section-header
+          title="Escríbenos"
+          align="left">
+        </app-section-header>
+
+        @if (submitSuccess) {
+          <div class="contact-form__success">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            <h3>¡Mensaje Enviado!</h3>
+            <p>Nos pondremos en contacto contigo lo antes posible.</p>
+            <button class="btn btn--outline-dark" (click)="submitSuccess = false">Enviar Otro Mensaje</button>
+          </div>
+        } @else {
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="name">Nombre *</label>
+              <input
+                id="name"
+                type="text"
+                class="form-input"
+                formControlName="name"
+                placeholder="Tu nombre completo">
+              @if (isFieldInvalid('name')) {
+                <span class="form-error">El nombre es obligatorio (mínimo 2 caracteres)</span>
+              }
+            </div>
+
+            <div class="contact-form__row">
+              <div class="form-group">
+                <label class="form-label" for="email">Email *</label>
+                <input
+                  id="email"
+                  type="email"
+                  class="form-input"
+                  formControlName="email"
+                  placeholder="tu@email.com">
+                @if (isFieldInvalid('email')) {
+                  <span class="form-error">Introduce un email válido</span>
+                }
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="phone">Teléfono</label>
+                <input
+                  id="phone"
+                  type="tel"
+                  class="form-input"
+                  formControlName="phone"
+                  placeholder="+34 600 000 000">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="subject">Asunto *</label>
+              <select
+                id="subject"
+                class="form-select"
+                formControlName="subject">
+                @for (subject of subjects; track subject.value) {
+                  <option [value]="subject.value">{{ subject.label }}</option>
+                }
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="message">Mensaje *</label>
+              <textarea
+                id="message"
+                class="form-textarea"
+                formControlName="message"
+                placeholder="¿En qué podemos ayudarte?"
+                rows="5"></textarea>
+              @if (isFieldInvalid('message')) {
+                <span class="form-error">El mensaje es obligatorio (mínimo 10 caracteres)</span>
+              }
+            </div>
+
+            @if (submitError) {
+              <div class="contact-form__error">
+                Ha ocurrido un error. Por favor, inténtalo de nuevo.
+              </div>
+            }
+
+            <button
+              type="submit"
+              class="btn btn--primary btn--lg"
+              [disabled]="isSubmitting">
+              @if (isSubmitting) {
+                <span class="contact-form__spinner"></span>
+                Enviando...
+              } @else {
+                Enviar Mensaje
+              }
+            </button>
+          </form>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Map -->
+<section class="contact-map">
+  <iframe
+    [src]="mapUrl"
+    width="100%"
+    height="450"
+    style="border:0;"
+    allowfullscreen
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    title="Ubicación del restaurante">
+  </iframe>
+</section>
