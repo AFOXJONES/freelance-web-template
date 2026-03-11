@@ -1,3 +1,17 @@
+/**
+ * ╔══════════════════════════════════════════════════════════════╗
+ * ║  EQUIPO                                                    ║
+ * ║  Miembros del equipo que aparecen en la página "Nosotros"  ║
+ * ║                                                            ║
+ * ║  Para cada cliente:                                        ║
+ * ║  1. Cambia nombre, cargo (role) y biografía (bio)          ║
+ * ║  2. Sustituye las fotos por retratos reales (400px)        ║
+ * ║  3. Ajusta las redes sociales de cada miembro              ║
+ * ║  4. Puedes añadir o quitar miembros según necesidad        ║
+ * ║     (si cambias de 3 a 4, ajusta grid--3 → grid--4         ║
+ * ║      en about.component.html)                              ║
+ * ╚══════════════════════════════════════════════════════════════╝
+ */
 import { TeamMember } from '../core/models/team-member.model';
 
 export const TEAM_DATA: TeamMember[] = [

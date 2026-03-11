@@ -1,7 +1,7 @@
 <app-page-hero
   title="Nosotros"
   subtitle="Conoce a la familia detrás de la barra"
-  image="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1920">
+  [image]="config.images.aboutHero">
 </app-page-hero>
 
 <!-- HISTORY SECTION -->
@@ -9,7 +9,7 @@
   <div class="container">
     <div class="history__grid">
       <div class="history__image">
-        <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800" alt="Interior del bar con la barra de madera" loading="lazy">
+        <img [src]="config.images.aboutStory" [alt]="config.name + ' - interior'" loading="lazy">
       </div>
       <div class="history__content">
         <app-section-header

@@ -1,3 +1,18 @@
+/**
+ * ╔══════════════════════════════════════════════════════════════╗
+ * ║  GALERÍA                                                   ║
+ * ║  Fotos que aparecen en la página de galería y en el        ║
+ * ║  preview de la landing                                     ║
+ * ║                                                            ║
+ * ║  Para cada cliente:                                        ║
+ * ║  1. Sustituye las URLs por fotos reales (800px)            ║
+ * ║  2. Cambia el 'alt' (texto alternativo) de cada foto       ║
+ * ║  3. Asigna categoría: 'interior','platos','eventos',       ║
+ * ║     'equipo' (para los filtros de la galería)              ║
+ * ║  4. size: 'normal','wide','tall' controla el tamaño        ║
+ * ║     en el grid de la galería                               ║
+ * ╚══════════════════════════════════════════════════════════════╝
+ */
 import { GalleryItem } from '../core/models/gallery-item.model';
 
 export const GALLERY_DATA: GalleryItem[] = [

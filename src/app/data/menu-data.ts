@@ -1,3 +1,17 @@
+/**
+ * ╔══════════════════════════════════════════════════════════════╗
+ * ║  CARTA / MENÚ                                              ║
+ * ║  Categorías, platos, precios, imágenes y menús del día     ║
+ * ║                                                            ║
+ * ║  Para cada cliente:                                        ║
+ * ║  1. Cambia las categorías según su carta real               ║
+ * ║  2. Añade/quita platos con nombre, descripción, precio     ║
+ * ║  3. Sustituye las URLs de Unsplash por fotos reales (600px)║
+ * ║  4. Ajusta tags: 'vegetariano','vegano','sin-gluten',      ║
+ * ║     'picante','recomendado'                                ║
+ * ║  5. Actualiza los menús del día al final del archivo       ║
+ * ╚══════════════════════════════════════════════════════════════╝
+ */
 import { MenuCategory, TastingMenu } from '../core/models/menu-item.model';
 
 export const MENU_DATA: MenuCategory[] = [

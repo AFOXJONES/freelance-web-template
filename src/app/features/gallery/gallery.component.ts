@@ -16,6 +16,7 @@ export class GalleryComponent implements AfterViewInit {
   private dataService = inject(RestaurantDataService);
   private platformId = inject(PLATFORM_ID);
 
+  config = this.dataService.config;
   allItems = this.dataService.galleryItems;
   filteredItems = [...this.allItems];
   activeFilter = 'todos';

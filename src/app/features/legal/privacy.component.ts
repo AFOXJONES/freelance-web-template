@@ -14,20 +14,14 @@ import { RestaurantDataService } from '../../core/services/restaurant-data.servi
       <p>{{ config.name }}, con domicilio en {{ config.contact.address.street }}, {{ config.contact.address.postalCode }} {{ config.contact.address.city }}, es el responsable del tratamiento de los datos personales del usuario.</p>
 
       <h2>2. Datos Recogidos</h2>
-      <p>Recogemos los siguientes datos personales a través de nuestro formulario de contacto:</p>
-      <ul>
-        <li>Nombre y apellidos</li>
-        <li>Dirección de correo electrónico</li>
-        <li>Número de teléfono (opcional)</li>
-        <li>Mensaje o consulta</li>
-      </ul>
+      <p>Este sitio web no recoge datos personales de los usuarios de forma directa. Los datos que podamos recibir serán únicamente aquellos que el usuario nos proporcione voluntariamente al contactar con nosotros por teléfono o correo electrónico.</p>
 
       <h2>3. Finalidad del Tratamiento</h2>
-      <p>Los datos recogidos serán utilizados para:</p>
+      <p>Los datos proporcionados voluntariamente por el usuario serán utilizados para:</p>
       <ul>
-        <li>Gestionar las reservas y consultas realizadas</li>
-        <li>Enviar comunicaciones relacionadas con nuestros servicios</li>
-        <li>Mejorar la experiencia del usuario en nuestro sitio web</li>
+        <li>Atender consultas y solicitudes de información</li>
+        <li>Gestionar reservas realizadas por teléfono o email</li>
+        <li>Mejorar nuestros servicios</li>
       </ul>
 
       <h2>4. Derechos del Usuario</h2>

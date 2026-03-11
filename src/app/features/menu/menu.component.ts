@@ -16,6 +16,7 @@ export class MenuComponent implements AfterViewInit {
   private dataService = inject(RestaurantDataService);
   private platformId = inject(PLATFORM_ID);
 
+  config = this.dataService.config;
   categories: MenuCategory[] = this.dataService.menuCategories;
   tastingMenus: TastingMenu[] = this.dataService.tastingMenus;
   activeCategory = '';

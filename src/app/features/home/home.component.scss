@@ -6,7 +6,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1920');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -307,7 +306,6 @@
 .cta-section {
   position: relative;
   padding: 6rem 0;
-  background-image: url('https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1920');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -356,5 +354,16 @@
     font-weight: 600;
     color: var(--color-accent-light);
     margin-bottom: 0.25rem;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    a {
+      text-decoration: none;
+    }
   }
 }

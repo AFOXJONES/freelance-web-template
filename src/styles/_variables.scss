@@ -1,3 +1,16 @@
+// ╔══════════════════════════════════════════════════════════════════╗
+// ║  VARIABLES DE DISEÑO                                            ║
+// ║  Colores, tipografía, espaciado — la identidad visual           ║
+// ║                                                                 ║
+// ║  Para cada cliente:                                             ║
+// ║  1. Cambia --color-primary por el color principal de su marca   ║
+// ║  2. Cambia --color-accent por su color secundario/acento        ║
+// ║  3. Ajusta los fondos (--color-background) si quiere más        ║
+// ║     oscuro o más claro                                          ║
+// ║  4. Cambia --font-heading y --font-body si tiene otra fuente    ║
+// ║     (recuerda actualizar también el <link> en index.html)       ║
+// ╚══════════════════════════════════════════════════════════════════╝
+
 :root {
   // === COLORES PRINCIPALES (MODIFICAR AQUÍ) ===
   --color-primary: #6B3A2A;

@@ -20,7 +20,7 @@ import { RestaurantDataService } from '../../core/services/restaurant-data.servi
       <p>Todos los contenidos del sitio web, incluyendo textos, fotografías, gráficos, imágenes, iconos, tecnología, software, así como su diseño gráfico y códigos fuente, constituyen una obra cuya propiedad pertenece a {{ config.name }}.</p>
 
       <h2>4. Reservas</h2>
-      <p>Las reservas realizadas a través de nuestro formulario de contacto están sujetas a disponibilidad. Nos reservamos el derecho de confirmar o modificar las reservas según nuestra capacidad.</p>
+      <p>Las reservas se gestionan por teléfono o correo electrónico y están sujetas a disponibilidad. Nos reservamos el derecho de confirmar o modificar las reservas según nuestra capacidad.</p>
 
       <h2>5. Precios</h2>
       <p>Los precios mostrados en nuestra carta incluyen IVA. Nos reservamos el derecho de modificar los precios sin previo aviso.</p>

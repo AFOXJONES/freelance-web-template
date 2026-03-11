@@ -1,5 +1,5 @@
 <!-- HERO SECTION -->
-<section class="hero">
+<section class="hero" [style.background-image]="'url(' + config.images.heroBackground + ')'">
   <div class="overlay"></div>
   <div class="hero__content">
     <span class="hero__tagline-top">Bienvenidos a</span>
@@ -94,7 +94,7 @@
   <div class="container">
     <div class="about-preview__grid">
       <div class="about-preview__image">
-        <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=800" alt="Pepe en la cocina del bar" loading="lazy">
+        <img [src]="config.images.aboutPreview" [alt]="config.name" loading="lazy">
       </div>
       <div class="about-preview__content">
         <app-section-header
@@ -143,7 +143,7 @@
 </section>
 
 <!-- CTA SECTION -->
-<section class="cta-section fade-in">
+<section class="cta-section fade-in" [style.background-image]="'url(' + config.images.ctaBackground + ')'">
   <div class="overlay"></div>
   <div class="cta-section__content container">
     <h2 class="cta-section__title">Ven a Tomarte Algo</h2>
@@ -162,6 +162,14 @@
         <span>{{ config.hours.sunday.lunch }}</span>
       </div>
     </div>
-    <app-cta-button link="/contacto" variant="primary" size="lg" text="Ven a Vernos"></app-cta-button>
+    <div class="cta-section__buttons">
+      <a href="tel:{{ config.contact.phone }}" class="btn btn--primary btn--lg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        Llamar: {{ config.contact.phone }}
+      </a>
+      <app-cta-button link="/contacto" variant="outline" size="lg" text="Cómo Llegar"></app-cta-button>
+    </div>
   </div>
 </section>
