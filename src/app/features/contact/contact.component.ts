@@ -24,7 +24,7 @@ export class ContactComponent {
   submitError = false;
 
   mapUrl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-    `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037!2d${this.config.contact.coordinates.lng}!3d${this.config.contact.coordinates.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z!5e0!3m2!1ses!2ses!4v1`
+    `https://www.openstreetmap.org/export/embed.html?bbox=${this.config.contact.coordinates.lng - 0.005}%2C${this.config.contact.coordinates.lat - 0.003}%2C${this.config.contact.coordinates.lng + 0.005}%2C${this.config.contact.coordinates.lat + 0.003}&layer=mapnik&marker=${this.config.contact.coordinates.lat}%2C${this.config.contact.coordinates.lng}`
   );
 
   contactForm: FormGroup = this.fb.group({

@@ -9,20 +9,21 @@ import { RouterLink } from '@angular/router';
   template: `
     @if (href) {
       <a [href]="href" class="btn" [ngClass]="buttonClasses" [target]="external ? '_blank' : null" [rel]="external ? 'noopener' : null">
-        <ng-content></ng-content>
+        {{ text }}
       </a>
     } @else if (link) {
       <a [routerLink]="link" class="btn" [ngClass]="buttonClasses">
-        <ng-content></ng-content>
+        {{ text }}
       </a>
     } @else {
       <button class="btn" [ngClass]="buttonClasses" [type]="type" [disabled]="disabled">
-        <ng-content></ng-content>
+        {{ text }}
       </button>
     }
   `
 })
 export class CtaButtonComponent {
+  @Input() text = '';
   @Input() link?: string;
   @Input() href?: string;
   @Input() variant: 'primary' | 'outline' | 'outline-dark' = 'primary';

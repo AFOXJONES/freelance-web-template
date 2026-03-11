@@ -34,12 +34,11 @@
   gap: 0.5rem;
   padding: 0.875rem 2rem;
   font-family: var(--font-body);
-  font-size: 0.9375rem;
+  font-size: 1rem;
   font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   border: 2px solid transparent;
-  border-radius: var(--border-radius-sm);
+  border-radius: var(--border-radius-md);
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;

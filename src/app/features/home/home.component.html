@@ -7,8 +7,8 @@
     <p class="hero__tagline">{{ config.tagline }}</p>
     <p class="hero__description">{{ config.description }}</p>
     <div class="hero__buttons">
-      <app-cta-button link="/carta" variant="primary" size="lg">Ver Carta</app-cta-button>
-      <app-cta-button link="/contacto" variant="outline" size="lg">Contacto</app-cta-button>
+      <app-cta-button link="/carta" variant="primary" size="lg" text="Ver Carta"></app-cta-button>
+      <app-cta-button link="/contacto" variant="outline" size="lg" text="Cómo Llegar"></app-cta-button>
     </div>
   </div>
   <div class="hero__scroll-indicator">
@@ -26,7 +26,7 @@
   <div class="container">
     <app-section-header
       title="¿Por Qué Elegirnos?"
-      subtitle="Tres pilares que definen nuestra experiencia gastronómica">
+      subtitle="Esto es lo que nos hace diferentes en el barrio">
     </app-section-header>
 
     <div class="grid grid--3">
@@ -58,7 +58,7 @@
   <div class="container">
     <app-section-header
       title="Nuestra Carta"
-      subtitle="Descubre una selección de nuestros platos más destacados">
+      subtitle="Una muestra de lo que puedes encontrar en nuestra barra">
     </app-section-header>
 
     <div class="grid grid--3">
@@ -84,7 +84,7 @@
     </div>
 
     <div class="menu-preview__cta">
-      <app-cta-button link="/carta" variant="outline-dark">Ver Carta Completa</app-cta-button>
+      <app-cta-button link="/carta" variant="outline-dark" text="Ver Carta Completa"></app-cta-button>
     </div>
   </div>
 </section>
@@ -94,7 +94,7 @@
   <div class="container">
     <div class="about-preview__grid">
       <div class="about-preview__image">
-        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=800" alt="Nuestro chef en acción" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=800" alt="Pepe en la cocina del bar" loading="lazy">
       </div>
       <div class="about-preview__content">
         <app-section-header
@@ -111,7 +111,7 @@
             </li>
           }
         </ul>
-        <app-cta-button link="/nosotros" variant="outline-dark">Conocer Más</app-cta-button>
+        <app-cta-button link="/nosotros" variant="outline-dark" text="Conocer Más"></app-cta-button>
       </div>
     </div>
   </div>
@@ -122,7 +122,7 @@
   <div class="container">
     <app-section-header
       title="Galería"
-      subtitle="Momentos capturados en La Esencia">
+      subtitle="El día a día de nuestro bar">
     </app-section-header>
 
     <div class="gallery-preview__grid">
@@ -137,7 +137,7 @@
     </div>
 
     <div class="gallery-preview__cta">
-      <app-cta-button link="/galeria" variant="outline-dark">Ver Galería Completa</app-cta-button>
+      <app-cta-button link="/galeria" variant="outline-dark" text="Ver Galería Completa"></app-cta-button>
     </div>
   </div>
 </section>
@@ -146,22 +146,22 @@
 <section class="cta-section fade-in">
   <div class="overlay"></div>
   <div class="cta-section__content container">
-    <h2 class="cta-section__title">Ven a Vivir la Experiencia</h2>
-    <p class="cta-section__text">Reserva tu mesa y déjate sorprender por nuestra cocina de autor</p>
+    <h2 class="cta-section__title">Ven a Tomarte Algo</h2>
+    <p class="cta-section__text">Te esperamos con las mejores tapas, bocadillos y cañas del barrio</p>
     <div class="cta-section__hours">
       <div class="cta-section__hours-item">
         <span class="cta-section__hours-label">Lunes - Viernes</span>
-        <span>{{ config.hours.weekdays.lunch }} | {{ config.hours.weekdays.dinner }}</span>
+        <span>{{ config.hours.weekdays.lunch }}</span>
       </div>
       <div class="cta-section__hours-item">
         <span class="cta-section__hours-label">Sábado</span>
-        <span>{{ config.hours.saturday.lunch }} | {{ config.hours.saturday.dinner }}</span>
+        <span>{{ config.hours.saturday.lunch }}</span>
       </div>
       <div class="cta-section__hours-item">
         <span class="cta-section__hours-label">Domingo</span>
         <span>{{ config.hours.sunday.lunch }}</span>
       </div>
     </div>
-    <app-cta-button link="/contacto" variant="primary" size="lg">Reservar Mesa</app-cta-button>
+    <app-cta-button link="/contacto" variant="primary" size="lg" text="Ven a Vernos"></app-cta-button>
   </div>
 </section>
